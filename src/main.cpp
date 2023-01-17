@@ -8,9 +8,12 @@
 // =======================================================================================
 void setup()   {
   pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(PIN_VOORACHT, OUTPUT);
+  pinMode(PIN_LINKRECH, OUTPUT);
+
   Serial.begin( SERIALSPEED );
 
+  simulate_joystick(bew_rust, bew_rust);
   blink();
 }
 
@@ -28,9 +31,25 @@ void loop() {
     Serial.println((char)incomingByte);
     incomingCMD = toupper( incomingByte );
     switch (incomingCMD) {
-    case 'A': //Vooruit
-      Serial.print("Vooruit");
+    case 'A': //Achteruit
+      Serial.println("Achteruit");
       blink();
+      smooth_joystick(bew_min, bew_rust);
+      break;
+    case 'L': //Links
+      Serial.println("Links");
+      blink();
+      smooth_joystick(bew_rust, bew_min);
+      break;
+    case 'R': //Rechts
+      Serial.println("Rechts");
+      blink();
+      smooth_joystick(bew_rust, bew_max);
+      break;
+    case 'V': //Vooruit
+      Serial.println("Vooruit");
+      blink();
+      smooth_joystick(bew_max, bew_rust);
       break;
     
     default:
