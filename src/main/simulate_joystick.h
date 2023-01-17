@@ -23,4 +23,4 @@ void smooth_joystick(int vooruit, int zijwaarts) {
       delay(200);
     }
     simulate_joystick (bew_rust, bew_rust);
-}
+}v
