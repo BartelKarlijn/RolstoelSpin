@@ -14,6 +14,14 @@ void setup()   {
   Serial.begin( SERIALSPEED );
 
   simulate_joystick(bew_rust, bew_rust);
+  Serial.print("bew_min: ");
+  Serial.print(bew_min);
+  Serial.print(" rust: ");
+  Serial.print(bew_rust);
+  Serial.print(" max: ");
+  Serial.print(bew_max);
+  Serial.println();
+  Serial.println("Setup gedaan");
   blink();
 }
 
