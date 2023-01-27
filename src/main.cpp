@@ -7,14 +7,63 @@
 // Setup
 // =======================================================================================
 void setup()   {
-//  setupSerial();
-  delay(1000);
-//  SetupFinished();
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(PIN_VOORACHT, OUTPUT);
+  pinMode(PIN_LINKRECH, OUTPUT);
+
+  Serial.begin( SERIALSPEED );
+
+  simulate_joystick(bew_rust, bew_rust);
+  Serial.print("bew_min: ");
+  Serial.print(bew_min);
+  Serial.print(" rust: ");
+  Serial.print(bew_rust);
+  Serial.print(" max: ");
+  Serial.print(bew_max);
+  Serial.println();
+  Serial.println("Setup gedaan");
+  blink();
 }
 
 // =======================================================================================
 // Loop
 // =======================================================================================
 void loop() {
+  // check if data is available
+  if (Serial.available() > 0) {
+    // read the incoming byte:
+    incomingByte = Serial.read();
 
+    // prints the received data
+    Serial.print("I received: ");
+    Serial.println((char)incomingByte);
+    incomingCMD = toupper( incomingByte );
+    switch (incomingCMD) {
+    case 'A': //Achteruit
+      Serial.println("Achteruit");
+      blink();
+      smooth_joystick(bew_min, bew_rust);
+      break;
+    case 'L': //Links
+      Serial.println("Links");
+      blink();
+      smooth_joystick(bew_rust, bew_min);
+      break;
+    case 'R': //Rechts
+      Serial.println("Rechts");
+      blink();
+      smooth_joystick(bew_rust, bew_max);
+      break;
+    case 'V': //Vooruit
+      Serial.println("Vooruit");
+      blink();
+      smooth_joystick(bew_max, bew_rust);
+      break;
+    
+    default:
+      break;
+    }
+
+
+  }
 }
