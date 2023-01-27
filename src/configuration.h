@@ -10,7 +10,7 @@
 ///////////////// Spanning  //////////////////////////////
 // in mV omdat map functie enkel met gehele getallen werkt
 #define MVOLT_0V      0
-#define MVOLT_RUST 2500
-#define MVOLT_HIGH 3800
-#define MVOLT_LOW  1200
+#define MVOLT_RUST 2600
+#define MVOLT_HIGH 3900
+#define MVOLT_LOW  1300
 #define MVOLT_5V   5000
