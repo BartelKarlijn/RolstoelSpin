@@ -69,11 +69,13 @@ void loop() {
   }
 
   // smooth movements
-  bew_curva = 0.95 * bew_curva + 0.05 * bew_tgtva;
-  bew_curlr = 0.95 * bew_curlr + 0.05 * bew_tgtlr;
+  //bew_curva = 0.95 * bew_curva + 0.05 * bew_tgtva;
+  //bew_curlr = 0.95 * bew_curlr + 0.05 * bew_tgtlr;
+  bew_curva = bew_tgtva;
+  bew_curlr = bew_tgtlr;
 
   simulate_joystick(bew_curva, bew_curlr);
-
+  
   // watchdog
   if (millis() - timeNow >= TIMEOUT) {
     Serial.print("Input te traag, time= ");

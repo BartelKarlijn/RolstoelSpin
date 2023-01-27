@@ -11,4 +11,3 @@
 //Own libraries
 #include <main/blink.h>
 #include <main/simulate_joystick.h>
-#include <main/move_smooth.h>
