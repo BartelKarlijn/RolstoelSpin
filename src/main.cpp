@@ -39,26 +39,53 @@ void loop() {
     //Serial.println((char)incomingByte);
     incomingCMD = toupper( incomingByte );
     switch (incomingCMD) {
-    case 'A': //Achteruit
-      Serial.println("Achteruit");
-      bew_tgtva = bew_min;
-      bew_tgtlr = bew_rust;
-      break;
-    case 'L': //Links
-      Serial.println("Links");
-      bew_tgtva = bew_rust;
+    case 'A': //LinksVoor
+      Serial.println("LinksVoor");
+      bew_tgtva = bew_max;
       bew_tgtlr = bew_min;
       break;
-    case 'R': //Rechts
-      Serial.println("Rechts");
-      bew_tgtva = bew_rust;
-      bew_tgtlr = bew_max;
-      break;
-    case 'V': //Vooruit
+    case 'Z': //Vooruit
       Serial.println("Vooruit");
       bew_tgtva = bew_max;
       bew_tgtlr = bew_rust;
       break;
+    case 'E': //RechtsVoor
+      Serial.println("RechtsVoor");
+      bew_tgtva = bew_max;
+      bew_tgtlr = bew_max;
+      break;
+    case 'Q': //Links
+      Serial.println("Links");
+      bew_tgtva = bew_rust;
+      bew_tgtlr = bew_min;
+      break;
+    case 'S': //Stop
+    case ' ':
+      Serial.println("Stop");
+      bew_tgtva = bew_rust;
+      bew_tgtlr = bew_rust;
+      break;
+    case 'D': //Rechts
+      Serial.println("Rechts");
+      bew_tgtva = bew_rust;
+      bew_tgtlr = bew_max;
+      break;
+    case 'W': //LinksAchter
+      Serial.println("LinksAchter");
+      bew_tgtva = bew_min;
+      bew_tgtlr = bew_min;
+      break;
+    case 'X': //Achteruit
+      Serial.println("Achteruit");
+      bew_tgtva = bew_min;
+      bew_tgtlr = bew_rust;
+      break;
+    case 'C': //RechtsAchter
+      Serial.println("RechtsAchter");
+      bew_tgtva = bew_min;
+      bew_tgtlr = bew_max;
+      break; 
+ 
     default:
       Serial.print("Ongeldige letter: ");
       Serial.println((char)incomingByte);
