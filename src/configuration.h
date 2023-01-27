@@ -14,3 +14,8 @@
 #define MVOLT_HIGH 3900
 #define MVOLT_LOW  1300
 #define MVOLT_5V   5000
+
+///////////////// Watchdog  //////////////////////////////
+// Timeout in ms
+#define TIMEOUT 5000
+  
