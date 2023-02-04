@@ -8,8 +8,28 @@
 // =======================================================================================
 void setup()   {
   pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(PIN_VOORACHT, OUTPUT);
-  pinMode(PIN_LINKRECH, OUTPUT);
+  pinMode(PIN_JOYVOORACHT, OUTPUT);
+  pinMode(PIN_JOYLINKRECH, OUTPUT);
+  pinMode(PIN_ONOFF, OUTPUT);
+  pinMode(PIN_HAZARDS, OUTPUT);
+  pinMode(PIN_HORN, OUTPUT);
+  pinMode(PIN_LIGHTS, OUTPUT);
+  pinMode(PIN_MODE, OUTPUT);
+  pinMode(PIN_PROFILE, OUTPUT);
+  pinMode(PIN_LEFTTURN, OUTPUT);
+  pinMode(PIN_SPEEDDOWN, OUTPUT);
+  pinMode(PIN_SPEEDUP, OUTPUT);
+  pinMode(PIN_RIGHTTURN, OUTPUT);
+  digitalWrite(PIN_ONOFF, HIGH);
+  digitalWrite(PIN_HAZARDS, HIGH);
+  digitalWrite(PIN_HORN, HIGH);
+  digitalWrite(PIN_LIGHTS, HIGH);
+  digitalWrite(PIN_MODE, HIGH);
+  digitalWrite(PIN_PROFILE, HIGH);
+  digitalWrite(PIN_LEFTTURN, HIGH);
+  digitalWrite(PIN_SPEEDDOWN, HIGH);
+  digitalWrite(PIN_SPEEDUP, HIGH);
+  digitalWrite(PIN_RIGHTTURN, HIGH);
 
   Serial.begin( SERIALSPEED );
 
@@ -84,6 +104,7 @@ void loop() {
       Serial.println("RechtsAchter");
       bew_tgtva = bew_min;
       bew_tgtlr = bew_max;
+      buttonpress(PIN_HAZARDS);
       break; 
     default:
       Serial.print("Ongeldige letter: ");
