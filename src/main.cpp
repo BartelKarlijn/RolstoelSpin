@@ -104,7 +104,46 @@ void loop() {
       Serial.println("RechtsAchter");
       bew_tgtva = bew_min;
       bew_tgtlr = bew_max;
+      break; 
+    case '1':
+      Serial.println("ON/OFF");
+      buttonpress(PIN_ONOFF);
+      break; 
+    case '2':
+      Serial.println("HAZARDS");
       buttonpress(PIN_HAZARDS);
+      break; 
+    case '3':
+      Serial.println("HORN");
+      buttonpress(PIN_HORN);
+      break; 
+    case '4':
+      Serial.println("LIGHTS");
+      buttonpress(PIN_LIGHTS);
+      break; 
+    case '5':
+      Serial.println("MODE");
+      buttonpress(PIN_MODE);
+      break; 
+    case '6':
+      Serial.println("PROFILE");
+      buttonpress(PIN_PROFILE);
+      break; 
+    case '7':
+      Serial.println("LEFT TURN");
+      buttonpress(PIN_LEFTTURN);
+      break; 
+    case '8':
+      Serial.println("SPEED DOWN");
+      buttonpress(PIN_SPEEDDOWN);
+      break; 
+    case '9':
+      Serial.println("SPEED UP");
+      buttonpress(PIN_SPEEDUP);
+      break; 
+    case '0':
+      Serial.println("RIGHT TURN");
+      buttonpress(PIN_RIGHTTURN);
       break; 
     default:
       Serial.print("Ongeldige letter: ");
