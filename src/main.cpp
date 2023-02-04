@@ -85,7 +85,6 @@ void loop() {
       bew_tgtva = bew_min;
       bew_tgtlr = bew_max;
       break; 
- 
     default:
       Serial.print("Ongeldige letter: ");
       Serial.println((char)incomingByte);
