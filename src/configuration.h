@@ -6,16 +6,16 @@
 ///////////////// Pins  //////////////////////////////
 #define PIN_JOYVOORACHT     5    //pins 5&6 are capable of PWM up to 980Hz
 #define PIN_JOYLINKRECH     6
-#define PIN_ONOFF           2
-#define PIN_HAZARDS         3
-#define PIN_HORN            4
-#define PIN_LIGHTS          7
-#define PIN_MODE            8
+#define PIN_ONOFF           14
+#define PIN_HAZARDS         12   //PIN 13 + INTERNAL LED
+#define PIN_HORN            10
+#define PIN_LIGHTS          8
+#define PIN_MODE            11
 #define PIN_PROFILE         9
-#define PIN_LEFTTURN        10
-#define PIN_SPEEDDOWN       11
-#define PIN_SPEEDUP         12   //PIN 13 + INTERNAL LED
-#define PIN_RIGHTTURN       14
+#define PIN_LEFTTURN        4
+#define PIN_SPEEDDOWN       7
+#define PIN_SPEEDUP         3
+#define PIN_RIGHTTURN       2
 
 ///////////////// Spanning  //////////////////////////////
 // in mV omdat map functie enkel met gehele getallen werkt
