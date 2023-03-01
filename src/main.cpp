@@ -80,8 +80,12 @@ void loop() {
       bew_tgtlr = bew_min;
       break;
     case 'S': //Stop
-    case ' ':
       Serial.println("Stop");
+      bew_tgtva = bew_rust;
+      bew_tgtlr = bew_rust;
+      break;
+    case ' ': 
+      Serial.println("NoodStop");
       bew_tgtva = bew_rust;
       bew_tgtlr = bew_rust;
       break;
