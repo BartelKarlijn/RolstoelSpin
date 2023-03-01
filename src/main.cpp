@@ -20,20 +20,11 @@ void setup()   {
   pinMode(PIN_SPEEDDOWN, OUTPUT);
   pinMode(PIN_SPEEDUP, OUTPUT);
   pinMode(PIN_RIGHTTURN, OUTPUT);
-  digitalWrite(PIN_ONOFF, HIGH);
-  digitalWrite(PIN_HAZARDS, HIGH);
-  digitalWrite(PIN_HORN, HIGH);
-  digitalWrite(PIN_LIGHTS, HIGH);
-  digitalWrite(PIN_MODE, HIGH);
-  digitalWrite(PIN_PROFILE, HIGH);
-  digitalWrite(PIN_LEFTTURN, HIGH);
-  digitalWrite(PIN_SPEEDDOWN, HIGH);
-  digitalWrite(PIN_SPEEDUP, HIGH);
-  digitalWrite(PIN_RIGHTTURN, HIGH);
 
   Serial.begin( SERIALSPEED );
 
-  simulate_joystick(bew_rust, bew_rust);
+  noodstop();
+ 
   Serial.print("bew_min: ");
   Serial.print(bew_min);
   Serial.print(" rust: ");
@@ -59,56 +50,63 @@ void loop() {
     //Serial.println((char)incomingByte);
     incomingCMD = toupper( incomingByte );
     switch (incomingCMD) {
-    case 'A': //LinksVoor
+    case 'A': 
       Serial.println("LinksVoor");
       bew_tgtva = bew_max;
       bew_tgtlr = bew_min;
       break;
-    case 'Z': //Vooruit
+    case 'Z': 
       Serial.println("Vooruit");
       bew_tgtva = bew_max;
       bew_tgtlr = bew_rust;
       break;
-    case 'E': //RechtsVoor
+    case 'E': 
       Serial.println("RechtsVoor");
       bew_tgtva = bew_max;
       bew_tgtlr = bew_max;
       break;
-    case 'Q': //Links
+    case 'Q': 
       Serial.println("Links");
       bew_tgtva = bew_rust;
       bew_tgtlr = bew_min;
       break;
-    case 'S': //Stop
+    case 'S': 
       Serial.println("Stop");
       bew_tgtva = bew_rust;
       bew_tgtlr = bew_rust;
       break;
-    case ' ': 
-      Serial.println("NoodStop");
-      bew_tgtva = bew_rust;
-      bew_tgtlr = bew_rust;
-      break;
-    case 'D': //Rechts
+    case 'D': 
       Serial.println("Rechts");
       bew_tgtva = bew_rust;
       bew_tgtlr = bew_max;
       break;
-    case 'W': //LinksAchter
+    case 'W': 
       Serial.println("LinksAchter");
       bew_tgtva = bew_min;
       bew_tgtlr = bew_min;
       break;
-    case 'X': //Achteruit
+    case 'X': 
       Serial.println("Achteruit");
       bew_tgtva = bew_min;
       bew_tgtlr = bew_rust;
       break;
-    case 'C': //RechtsAchter
+    case 'C': 
       Serial.println("RechtsAchter");
       bew_tgtva = bew_min;
       bew_tgtlr = bew_max;
       break; 
+    case 'O': 
+      Serial.println("Tik Links");
+      tickleft();
+      break; 
+    case 'P': 
+      Serial.println("Tik Rechts");
+      tickleft();
+      break; 
+    case ' ': 
+      Serial.println("NoodStop");
+      noodstop();
+      break;
     case '1':
       Serial.println("ON/OFF");
       buttonpress(PIN_ONOFF);
@@ -158,9 +156,6 @@ void loop() {
     timeNow = millis();
   }
 
-  // smooth movements
-  //bew_curva = 0.95 * bew_curva + 0.05 * bew_tgtva;
-  //bew_curlr = 0.95 * bew_curlr + 0.05 * bew_tgtlr;
   bew_curva = bew_tgtva;
   bew_curlr = bew_tgtlr;
 

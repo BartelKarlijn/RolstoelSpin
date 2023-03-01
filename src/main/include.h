@@ -9,6 +9,8 @@
 
 //Own libraries
 #include <main/blink.h>
+#include <main/noodstop.h>
 #include <main/wait.h>
 #include <main/simulate_joystick.h>
 #include <main/buttonpress.h>
+#include <main/tickleft.h>

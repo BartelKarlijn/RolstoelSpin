@@ -11,8 +11,7 @@ void wait( unsigned long time){
       switch (incomingCMD) {
       case ' ': //Noodstop
         Serial.println("Noodstop");
-        bew_tgtva = bew_max;
-        bew_tgtlr = bew_min;
+        noodstop();
         break;
       default:
         Serial.print("Negeren: ");
