@@ -14,3 +14,6 @@ int bew_tgtlr = bew_rust;
 
 // voor watchdog
 unsigned long timeNow = 0;
+
+// voor LEDs
+CRGB leds[NUM_LEDS];

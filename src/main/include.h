@@ -15,3 +15,4 @@
 #include <main/simulate_joystick.h>
 #include <main/buttonpress.h>
 #include <main/tickleft.h>
+#include <main/ledfunctions.h>

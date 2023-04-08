@@ -35,4 +35,7 @@
 #define TIME_TICK 1000  //Joystick tick links/rechts
   
 ///////////////// LEDS ogen  //////////////////////////////
-#define NUM_LEDS 2
+#define NUM_LEDS       2
+#define LED_BRIGHTNESS 150
+#define LED_TYPE       WS2811
+#define LED_COLORORDER RGB
