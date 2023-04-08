@@ -1,7 +1,7 @@
 void wait( unsigned long time){
   timeNow = millis();
-
-  while (millis() - timeNow >= time) {
+  
+  while ( (millis() - timeNow) <= time) {
     // check if data is available
     if (Serial.available() > 0) {
       // read the incoming byte:

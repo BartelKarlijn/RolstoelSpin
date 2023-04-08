@@ -3,7 +3,7 @@ void tickleft(){
   bew_curva = bew_rust;
   bew_curlr = bew_min;
   simulate_joystick(bew_curva, bew_curlr);
-  wait(TIME_PRESS);
+  wait(TIME_TICK);
   
   //terug in midden
   bew_curva = bew_rust;
@@ -17,7 +17,7 @@ void tickright(){
   bew_curva = bew_rust;
   bew_curlr = bew_max;
   simulate_joystick(bew_curva, bew_curlr);
-  wait(TIME_PRESS);
+  wait(TIME_TICK);
   
   //terug in midden
   bew_curva = bew_rust;

@@ -30,5 +30,6 @@
 #define TIMEOUT 5000
 
 ///////////////// Tijd om op knop te drukken  //////////////////////////////
-#define TIME_PRESS 100
+#define TIME_PRESS 100  //knop indrukken
+#define TIME_TICK 1000  //Joystick tick links/rechts
   
