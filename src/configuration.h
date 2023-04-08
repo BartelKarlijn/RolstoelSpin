@@ -16,6 +16,7 @@
 #define PIN_SPEEDDOWN       7
 #define PIN_SPEEDUP         3
 #define PIN_RIGHTTURN       2
+#define PIN_LEDSTRIP        19
 
 ///////////////// Spanning  //////////////////////////////
 // in mV omdat map functie enkel met gehele getallen werkt
@@ -33,3 +34,5 @@
 #define TIME_PRESS 100  //knop indrukken
 #define TIME_TICK 1000  //Joystick tick links/rechts
   
+///////////////// LEDS ogen  //////////////////////////////
+#define NUM_LEDS 2

@@ -1,6 +1,7 @@
 #include <Arduino.h>
 
 // External libraries
+#include "FastLED.h"
 
 // Own libraries
 // variables
