@@ -12,8 +12,13 @@ int bew_curlr = bew_rust;
 int bew_tgtva = bew_rust;  //target
 int bew_tgtlr = bew_rust;
 
-// voor watchdog
+// voor watchdog, pinker
 unsigned long timeNow = 0;
+unsigned long timePink = 0;
 
 // voor LEDs
 CRGB leds[NUM_LEDS];
+int  oog_fct[NUM_LEDS];   // welke functie?  AAN, PINK of FADE
+CRGB oog_color[NUM_LEDS]; // tobe color
+int  oog_fade[NUM_LEDS];  // status van fading
+bool oog_pinkerstatus[NUM_LEDS];

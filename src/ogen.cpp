@@ -71,19 +71,19 @@ void loop() {
       break; 
     case ' ': 
       Serial.println("NoodStop");
-      led_Black();
+      oog_kleuren(FCT_AAN, CRGB::Black, FCT_AAN, CRGB::Black );
       break;
     case '1':
       Serial.println("ON/OFF");
-      led_Red();
-       break; 
+      oog_kleuren(FCT_AAN, CRGB::Red, FCT_AAN, CRGB::Red );
+      break; 
      case '2':
       Serial.println("HAZARDS");
-      led_Green();
+      oog_kleuren(FCT_AAN, CRGB::Green, FCT_AAN, CRGB::Green );
       break; 
     case '3':
       Serial.println("HORN");
-      led_Blue();
+      oog_kleuren(FCT_AAN, CRGB::Blue, FCT_AAN, CRGB::Blue );
       break; 
     case '4':
       Serial.println("LIGHTS");
@@ -91,6 +91,7 @@ void loop() {
       break; 
     case '5':
       Serial.println("MODE");
+      oog_kleuren(FCT_PINK, CRGB::Yellow, FCT_PINK, CRGB::YellowGreen );
       break; 
     case '6':
       Serial.println("PROFILE");
@@ -112,6 +113,15 @@ void loop() {
       Serial.println((char)incomingByte);
       break;
     }
+    // reset watchdog
+    timeNow = millis();
+  }
+  // watchdog
+  if (millis() - timeNow >= TIMEOUT) {
+    Serial.print("Input te traag, time= ");
+    Serial.println(timeNow);
+
+    timeNow = millis();
   }
 
 }

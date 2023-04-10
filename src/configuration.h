@@ -39,3 +39,7 @@
 #define LED_BRIGHTNESS 150
 #define LED_TYPE       WS2811
 #define LED_COLORORDER RGB
+#define FCT_AAN        1
+#define FCT_PINK       2
+#define FCT_FADE       3
+#define TIME_PINK      1000 //pinker knipper tijd
