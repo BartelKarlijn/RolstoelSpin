@@ -19,7 +19,10 @@ unsigned long timeNow = 0;
 CRGB leds[NUM_LEDS];
 int  oog_fct[NUM_LEDS];   // welke functie?  AAN, PINK of FADE
 CRGB oog_color[NUM_LEDS]; // tobe color
-int  oog_fade[NUM_LEDS];  // status van fading
+CRGB oog_color2[NUM_LEDS]; // voor random
 bool oog_pinkerstatus[NUM_LEDS];
+bool oog_randomstatus[NUM_LEDS];
 unsigned long timePink[NUM_LEDS] = {0, 0};
 int fade_counter[NUM_LEDS] = {0, 0};
+int rand_counter[NUM_LEDS] = {0, 0};
+int rand_delay[NUM_LEDS]   = {RAND_DELAYMAX, RAND_DELAYMAX };

@@ -42,5 +42,8 @@
 #define FCT_AAN        1
 #define FCT_PINK       2
 #define FCT_FADE       3
+#define FCT_RAND       4
 #define TIME_PINK      1000 //pinker knipper tijd
 #define FADE_DELAY     10   //maakt fade functie trager
+#define RAND_DELAYMAX  20   //Traagste
+#define RAND_COLOR     CRGB::DarkRed

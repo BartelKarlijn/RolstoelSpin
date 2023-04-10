@@ -87,7 +87,7 @@ void loop() {
       break; 
     case '4':
       Serial.println("LIGHTS");
-      led_wakeup();
+      oog_kleuren(FCT_RAND, CRGB::Red, FCT_RAND, CRGB::White);
       break;
     case '5':
       Serial.println("MODE");
@@ -95,8 +95,8 @@ void loop() {
       break; 
     case '6':
       Serial.println("PROFILE");
-      oog_kleuren(FCT_FADE, CRGB::Red, FCT_FADE, CRGB::Red );
-      break; 
+      oog_kleuren(FCT_RAND, CRGB::Red, FCT_RAND, CRGB::Red );
+      break;
     case '7':
       Serial.println("LEFT TURN");
       break; 

@@ -25,6 +25,33 @@ void led_process(int lednr){
         leds[lednr] = blend( leds[lednr], oog_color[lednr], 1 );
       }
       break;     
+    case FCT_RAND: 
+      fade_counter[lednr]++;
+      if ( fade_counter[lednr] >= rand_delay[lednr] ){
+        fade_counter[lednr] = 0;
+        rand_counter[lednr]++;
+        if ( rand_counter[lednr] >= 255 ){
+          rand_counter[lednr] = 0;
+          if (oog_randomstatus[lednr] ){
+            // ga naar 2e kleur
+            Serial.print( "naar 2e kleur: ");
+            Serial.println(oog_color2[lednr]);
+            rand_delay[lednr] = random (0,RAND_DELAYMAX);
+            oog_color[lednr] = oog_color2[lednr];
+            oog_randomstatus[lednr] = not(oog_randomstatus[lednr]);
+          } 
+          else {
+            //ga naar random kleur
+            Serial.print( "naar random kleur: ");
+            Serial.println(oog_color2[lednr]);
+            rand_delay[lednr] = random (0,RAND_DELAYMAX);
+            oog_color[lednr]  = RAND_COLOR;
+            oog_randomstatus[lednr] = not(oog_randomstatus[lednr]);
+          }
+        }
+        leds[lednr] = blend( leds[lednr], oog_color[lednr], 1 );
+      }
+      break;     
     default:
       break;
     }
@@ -41,28 +68,6 @@ void oog_kleuren(int fctL, CRGB kleurL, int fctR, CRGB kleurR){
   oog_fct[1] = fctR;
   oog_color[0] = kleurL;
   oog_color[1] = kleurR;
-}
-
-void led_wakeup(){
-  leds[0] = CRGB::Black;
-  leds[1] = CRGB::Black;
-  FastLED.show();
-
-  for (int i = 0; i < 50; i++)
-  {
-    leds[0] = blend( leds[0], CRGB::Red, 1 );
-    FastLED.show();
-    delay(10);
-  }
-  leds[0] = CRGB::Black;
-  FastLED.show();
-  delay(1000);
-
-  for (int i = 0; i < 255; i++)
-  {
-    leds[0] = blend( leds[0], CRGB::Red, 2 );
-    leds[1] = blend( leds[1], CRGB::Red, 1 );
-    FastLED.show();
-  }
-  delay(500);
+  oog_color2[0] = kleurL;  //kleur bijhouden voor random
+  oog_color2[1] = kleurR;
 }
