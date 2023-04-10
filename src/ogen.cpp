@@ -123,5 +123,6 @@ void loop() {
 
     timeNow = millis();
   }
+  ogen_process();  
 
 }

@@ -4,16 +4,18 @@ void led_process(int lednr){
       leds[lednr] = oog_color[lednr];
       break;
     case FCT_PINK: 
-      if (millis() - timePink >= TIME_PINK) {
+      if (millis() - timePink[lednr] >= TIME_PINK) {
         if (oog_pinkerstatus[lednr]) {
           // pinker is aan: zet uit
-          leds[lednr] = CRGB::Black;
+          leds[lednr] = oog_color[lednr];
+          oog_pinkerstatus[lednr] = not( oog_pinkerstatus[lednr]);
         }
         else {
           // pinker is uit: zet aan
-          leds[lednr] = oog_color[lednr];
+          leds[lednr] = CRGB::Black;
+          oog_pinkerstatus[lednr] = not( oog_pinkerstatus[lednr]);
         }          
-        timeNow = millis();
+        timePink[lednr] = millis();
       }
       break;
     default:
@@ -32,15 +34,6 @@ void oog_kleuren(int fctL, CRGB kleurL, int fctR, CRGB kleurR){
   oog_fct[1] = fctR;
   oog_color[0] = kleurL;
   oog_color[1] = kleurR;
-  ogen_process();
-}
-
-void led_Yellow() {
-  oog_fct[0] = FCT_AAN;
-  oog_fct[1] = FCT_AAN;
-  oog_color[0] = CRGB::Yellow;
-  oog_color[1] = CRGB::YellowGreen; 
-  ogen_process();
 }
 
 void led_wakeup(){
@@ -65,28 +58,4 @@ void led_wakeup(){
     FastLED.show();
   }
   delay(500);
-}
-
-void led_Black(){
-  leds[0] = CRGB::Black;
-  leds[1] = CRGB::Black;
-  FastLED.show();
-}
-
-void led_Red(){
-  leds[0] = CRGB::Red;
-  leds[1] = CRGB::Red;
-  FastLED.show();
-}
-
-void led_Green(){
-  leds[0] = CRGB::Green;
-  leds[1] = CRGB::Green;
-  FastLED.show();
-}
-
-void led_Blue(){
-  leds[0] = CRGB::Blue;
-  leds[1] = CRGB::Blue;
-  FastLED.show();
 }
