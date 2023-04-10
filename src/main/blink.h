@@ -5,4 +5,5 @@ void blink() {
         digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
         delay(100);
     }
+    Serial.println("Setup gedaan");
 }

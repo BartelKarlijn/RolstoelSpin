@@ -32,7 +32,6 @@ void setup()   {
   Serial.print(" max: ");
   Serial.print(bew_max);
   Serial.println();
-  Serial.println("Setup gedaan");
   blink();
 }
 

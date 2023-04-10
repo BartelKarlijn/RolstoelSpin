@@ -43,3 +43,4 @@
 #define FCT_PINK       2
 #define FCT_FADE       3
 #define TIME_PINK      1000 //pinker knipper tijd
+#define FADE_DELAY     10   //maakt fade functie trager

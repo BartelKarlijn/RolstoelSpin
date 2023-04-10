@@ -18,6 +18,13 @@ void led_process(int lednr){
         timePink[lednr] = millis();
       }
       break;
+    case FCT_FADE: 
+      fade_counter[lednr]++;
+      if ( fade_counter[lednr] >= FADE_DELAY ){
+        fade_counter[lednr] = 0;
+        leds[lednr] = blend( leds[lednr], oog_color[lednr], 1 );
+      }
+      break;     
     default:
       break;
     }

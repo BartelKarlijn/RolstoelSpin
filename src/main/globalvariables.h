@@ -22,3 +22,4 @@ CRGB oog_color[NUM_LEDS]; // tobe color
 int  oog_fade[NUM_LEDS];  // status van fading
 bool oog_pinkerstatus[NUM_LEDS];
 unsigned long timePink[NUM_LEDS] = {0, 0};
+int fade_counter[NUM_LEDS] = {0, 0};
