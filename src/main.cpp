@@ -10,6 +10,8 @@ void setup()   {
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(PIN_JOYVOORACHT, OUTPUT);
   pinMode(PIN_JOYLINKRECH, OUTPUT);
+  pinMode(PIN_JOYMIDDEN, OUTPUT);
+  pinMode(PIN_JOYLINKRECH, OUTPUT);
   pinMode(PIN_ONOFF, OUTPUT);
   pinMode(PIN_HAZARDS, OUTPUT);
   pinMode(PIN_HORN, OUTPUT);
@@ -20,6 +22,15 @@ void setup()   {
   pinMode(PIN_SPEEDDOWN, OUTPUT);
   pinMode(PIN_SPEEDUP, OUTPUT);
   pinMode(PIN_RIGHTTURN, OUTPUT);
+
+// Pins D9 and D10 - 62.5 kHz
+  TCCR1A = 0b00000001; // 8bit
+  TCCR1B = 0b00001001; // x1 fast pwm
+  // Pins D3 and D11 - 62.5 kHz
+  TCCR2B = 0b00000001; // x1
+  TCCR2A = 0b00000011; // fast pwm
+  
+  analogWrite( PIN_JOYMIDDEN, 127);
 
   Serial.begin( SERIALSPEED );
 

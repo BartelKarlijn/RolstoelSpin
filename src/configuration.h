@@ -4,18 +4,19 @@
 #define SERIALSPEED 9600
 
 ///////////////// Pins  //////////////////////////////
-#define PIN_JOYVOORACHT     5    //pins 5&6 are capable of PWM up to 980Hz
-#define PIN_JOYLINKRECH     6
-#define PIN_ONOFF           14
-#define PIN_HAZARDS         12   //PIN 13 + INTERNAL LED
-#define PIN_HORN            10
-#define PIN_LIGHTS          8
-#define PIN_MODE            11
-#define PIN_PROFILE         9
-#define PIN_LEFTTURN        4
-#define PIN_SPEEDDOWN       7
-#define PIN_SPEEDUP         3
-#define PIN_RIGHTTURN       2
+#define PIN_JOYMIDDEN       9   //pin13 = PB1=D9
+#define PIN_JOYVOORACHT     10   //pin14 = PB1=D10  
+#define PIN_JOYLINKRECH     11   //pin15 = PB3=D11
+#define PIN_RIGHTTURN       12
+#define PIN_SPEEDUP         17
+#define PIN_LEFTTURN        18
+#define PIN_SPEEDDOWN       8
+#define PIN_LIGHTS          7
+#define PIN_PROFILE         6
+#define PIN_HORN            5
+#define PIN_MODE            4
+#define PIN_HAZARDS         3   //PIN 13 + INTERNAL LED
+#define PIN_ONOFF           2   //gaat naar 5 of 6?
 #define PIN_LEDSTRIP        19
 
 ///////////////// Spanning  //////////////////////////////
