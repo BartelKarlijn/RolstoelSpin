@@ -21,11 +21,11 @@
 
 ///////////////// Spanning  //////////////////////////////
 // in mV omdat map functie enkel met gehele getallen werkt
-#define MVOLT_0V      0
-#define MVOLT_RUST 2500
-#define MVOLT_HIGH 3800
-#define MVOLT_LOW  1200
-#define MVOLT_5V   5000
+#define MVOLT_RUST 2478 //gemeten op joystick
+#define MVOLT_TROW 1300 //zowel in + als -
+#define MVOLT_HIGH MVOLT_RUST + MVOLT_TROW
+#define MVOLT_LOW  MVOLT_RUST - MVOLT_TROW
+#define MVOLT_5V   4580 //gemeten aan uitgang PC
 
 ///////////////// Watchdog  //////////////////////////////
 // Timeout in ms
