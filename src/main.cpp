@@ -30,7 +30,7 @@ void setup()   {
   TCCR2B = 0b00000001; // x1
   TCCR2A = 0b00000011; // fast pwm
   
-  analogWrite( PIN_JOYMIDDEN, 127);
+  analogWrite( PIN_JOYMIDDEN, bew_rust);
 
   Serial.begin( SERIALSPEED );
 
