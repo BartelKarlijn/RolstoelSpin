@@ -16,17 +16,6 @@ void setup()   {
 // Loop
 // =======================================================================================
 void loop() {
-  // //blend
-  // leds[0] = CRGB::Red;
-  // leds[1] = CRGB::White;
-  // for (int i = 0; i < 255; i++)
-  // {
-  //   leds[0] = blend( leds[0], CRGB::Blue, 1 );
-  //   leds[1] = blend( leds[1], CRGB::Blue, 2 );
-  //   FastLED.show();
-  // }
-  
-  // check if data is available
   if (Serial.available() > 0) {
    // read the incoming byte:
    incomingByte = Serial.read();
@@ -38,30 +27,39 @@ void loop() {
    switch (incomingCMD) {
    case 'A': 
       Serial.println("LinksVoor");
+      oog_kleuren(FCT_PINK, CRGB::OrangeRed, FCT_AAN, CRGB::Purple );
       break;
     case 'Z': 
       Serial.println("Vooruit");
+      oog_kleuren(FCT_AAN, CRGB::Purple, FCT_AAN, CRGB::Purple );
       break;
     case 'E': 
       Serial.println("RechtsVoor");
+      oog_kleuren(FCT_AAN, CRGB::Purple, FCT_PINK, CRGB::OrangeRed );
       break;
     case 'Q': 
       Serial.println("Links");
+      oog_kleuren(FCT_PINK, CRGB::OrangeRed, FCT_AAN, CRGB::Red );
       break;
     case 'S': 
       Serial.println("Stop");
+      oog_kleuren(FCT_AAN, CRGB::Red, FCT_AAN, CRGB::Red );
       break;
     case 'D': 
       Serial.println("Rechts");
+      oog_kleuren(FCT_AAN, CRGB::Red, FCT_PINK, CRGB::OrangeRed );
       break;
     case 'W': 
       Serial.println("LinksAchter");
+      oog_kleuren(FCT_PINK, CRGB::OrangeRed, FCT_AAN, CRGB::Blue);
       break;
     case 'X': 
       Serial.println("Achteruit");
+      oog_kleuren(FCT_AAN, CRGB::Blue, FCT_AAN, CRGB::Blue);
       break;
     case 'C': 
       Serial.println("RechtsAchter");
+      oog_kleuren(FCT_AAN, CRGB::Blue, FCT_PINK, CRGB::OrangeRed);
       break; 
     case 'O': 
       Serial.println("Tik Links");
@@ -71,7 +69,7 @@ void loop() {
       break; 
     case ' ': 
       Serial.println("NoodStop");
-      oog_kleuren(FCT_AAN, CRGB::Black, FCT_AAN, CRGB::Black );
+      oog_kleuren(FCT_PINK, CRGB::Purple, FCT_PINK, CRGB::Purple );
       break;
     case '1':
       Serial.println("ON/OFF");
@@ -121,6 +119,7 @@ void loop() {
   if (millis() - timeNow >= TIMEOUT) {
     Serial.print("Input te traag, time= ");
     Serial.println(timeNow);
+    oog_kleuren(FCT_PINK, CRGB::Purple, FCT_PINK, CRGB::Purple );
 
     timeNow = millis();
   }
