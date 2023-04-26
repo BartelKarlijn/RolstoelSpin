@@ -1,6 +1,6 @@
 void noodstop() {
-  bew_tgtva = bew_max;
-  bew_tgtlr = bew_min;
+  bew_tgtva = bew_rust;
+  bew_tgtlr = bew_rust;
   digitalWrite(PIN_ONOFF, HIGH);
   digitalWrite(PIN_HAZARDS, HIGH);
   digitalWrite(PIN_HORN, HIGH);
